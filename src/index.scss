@@ -1,0 +1,251 @@
+// FONT 
+@font-face {
+    font-family: ampleBold;
+    src: url(./ample/AmpleSoftPro-Bold.ttf);
+}
+@font-face {
+    font-family: ampleMed;
+    src: url(./ample/AmpleSoftPro-Medium.ttf);
+}
+@font-face {
+    font-family: ampleLite;
+    src: url(./ample/AmpleSoftPro-Regular.ttf);
+}
+// variables
+$ab: ampleBold;
+$am: ampleMed;
+$al: ampleLite;
+// MIXINS
+@import './mixins';
+:root {
+    /* color */
+    --dark: #000;
+    --deep-blue: #150050;
+    --blueey: #3f0071;
+    --light-blue: #9026c8;
+    --golden: gold;
+}
+// *
+* {
+    padding: 0;
+    margin: 0;
+    resize: none;
+    box-sizing: border-box;
+}
+// html
+html {
+    scroll-behavior: smooth;
+    font-family: $al;
+}
+// body 
+body {
+    min-height: 100vh;
+    padding: 20px 100px 20px 100px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.199), rgba(255, 255, 255, 0.24)),url(./images/background.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: ghostwhite;
+    background-position: center;
+}
+// header
+.ms {
+    // background-color: black;
+    padding: 10px;
+    max-width: 1440px;
+    @include flex(flex-start);
+    overflow: hidden;
+    .ms-t {
+        font-family: $ab;
+        font-size: 55px;
+        color: var(--golden);
+    }
+    .ms-svg {
+        font-size: 40px;
+        color: var(--light-blue);
+    }
+}
+// main
+.sub {
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+    .selection {
+        width: 100%;
+        .sub-t {
+            text-align: center;
+            // display: block;
+            position: relative;
+            width: 15vw;
+            color: var(--light-blue);
+            font-size: 35px;
+            margin: auto;
+            &::after,
+            &::before {
+                content: "";
+                width: 20%;
+                height: 6px;
+                background-color: var(--golden);
+                position: absolute;
+                top: 50%;
+                @include rad(10px);
+                transform: translateY(-50%);
+            }
+            &::after {
+                right: -10%;
+            }
+            &::before {
+                left: -10%;
+            }
+        }
+        // button div painting
+        .select {
+            // background-color: black;
+            padding: 20px;
+            @include flex(center);
+            gap: 10px;
+            .btn {
+                font-family: $am;
+                font-size: 16px;
+                height: 40px;
+                padding: 0 24px;
+                background-color: transparent;
+                color: var(--blueey);
+                border: none;
+                outline: none;
+                @include rad(5px);
+                cursor: pointer;
+                position: relative;
+                .btn-svg {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    rect {
+                        width: 100%;
+                        height: 100%;
+                        stroke: var(--golden);
+                        stroke-opacity: 0;
+                        fill: none;
+                        stroke-width: 3;
+                        stroke-linejoin: miter;
+                        stroke-dasharray: 100,40;
+                        transition: 5000ms;
+                    }
+                }
+                &:hover .btn-svg rect {
+                    stroke-dashoffset: 360;
+                    transition: 1s;
+                    stroke-opacity: 1;
+                }
+                &:hover {
+                    color: var(--golden)
+                }
+            }
+        }
+    }
+    .showglass {
+        width: 100%;
+        min-height: 100px;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        overflow: hidden;
+        .item {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            @include flex(center);
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            @include rad(20px);
+            svg:not(.order-svg) {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                rect {
+                    width: 100%;
+                    height: 100%;
+                    fill: none;
+                    stroke: var(--blueey);
+                    stroke-width: 40;
+                    stroke-dasharray: 100,200;
+                    transition: 1s;
+                    stroke-opacity: 0;
+                }
+            }
+            &:hover {
+                .item-svg {
+                    rect {
+                        stroke-dashoffset: 360;
+                        fill: var(--light-blue);
+                        stroke: var(--golden);
+                        transition: .5s 1s;
+                        stroke-opacity: .8;
+                    }
+                }
+            }
+            span {
+                display: block;
+                transition: 3s;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &:hover {
+                span {
+                    transition: .8s;
+                }
+                .pt-1 {
+                    transform: translateY(-100%);
+                }
+
+            }
+            h2 {
+                font-family: $am;
+                color: white;
+            }
+            .order {
+                padding: 5px 15px;
+                border: none;
+                outline: none;
+                font-size: 50px;
+                background-color: transparent;
+                overflow: hidden;
+                cursor: pointer;
+                .order-svg {
+                    
+                    path {
+                        fill: none;
+                        stroke: black;
+                        stroke-width: 10;
+                        transition: .2s ease-in-out;
+                    }
+                }
+                &:hover {
+                    .order-svg{
+                        path {
+                            stroke-dasharray: 200;
+                            stroke-dashoffset: 200;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

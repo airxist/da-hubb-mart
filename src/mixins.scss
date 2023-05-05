@@ -1,0 +1,12 @@
+// border
+@mixin border {
+    border: 2px solid black
+}
+@mixin flex($var) {
+    display: flex;
+    align-items: center;
+    justify-content: $var;
+}
+@mixin rad($var) {
+    border-radius: $var;
+}
