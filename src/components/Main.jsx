@@ -1,19 +1,18 @@
 import Button from "./Button"
 import Showglass from "./Showglass";
 import { Data } from "./Data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 let availCategory = ["all", ...new Set(Data.map(item => item.category)) ];
 
 const Main = () => {
     const [menu, setMenu] = useState(Data);
-    const [truthy, setTruthy] = useState(true);
+    const [truthy] = useState(true);
     const [category, {/*setCategory*/}] = useState([...availCategory])
 
     // filtering items
     const filtering = (event) => {
             let {id} = event.currentTarget.dataset;
-            setTruthy(prev => !prev);
             setMenu(prevMenu => {
                 return id === "all" ? Data : Data.filter(item => item.category === id);
             })

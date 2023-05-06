@@ -1,8 +1,12 @@
 import { FaCartArrowDown, FaCartPlus } from "react-icons/fa";
+import {motion} from 'framer-motion';
 
-const Item = ({image :  picture, title, price, styling}) => {
+const Item = ({image :  picture, title, price, styling, look}) => {
     return (
-        <div className="item" style={styling}>
+        <motion.div className="item" style={styling}
+            animate={{scale: look ? 1 : 0, opacity : 1, x : [-100, 50, 0]}}
+            initial={{scale: 0, opacity : 0, x : "1000px"}}
+        >
             <span className="pt-1">
                 <img src={picture} alt="" />
             </span>
@@ -14,7 +18,7 @@ const Item = ({image :  picture, title, price, styling}) => {
             <svg className="item-svg">
                 <rect></rect>
             </svg>
-        </div>
+        </motion.div>
     )
 }
 

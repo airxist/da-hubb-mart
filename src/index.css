@@ -42,6 +42,11 @@ body {
   background-position: center;
 }
 
+@media screen and (max-width: 900px) {
+  body {
+    padding: 5px 10px;
+  }
+}
 .ms {
   padding: 10px;
   max-width: 1440px;
@@ -58,6 +63,11 @@ body {
 .ms .ms-svg {
   font-size: 40px;
   color: var(--light-blue);
+}
+@media screen and (max-width: 768px) {
+  .ms .ms-t {
+    font-size: 6vw;
+  }
 }
 
 .sub {
@@ -91,6 +101,30 @@ body {
 }
 .sub .selection .sub-t::before {
   left: -10%;
+}
+@media screen and (max-width: 1200px) {
+  .sub .selection .sub-t::after {
+    right: -30%;
+  }
+  .sub .selection .sub-t::before {
+    left: -30%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sub .selection .sub-t::after, .sub .selection .sub-t::before {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .sub .selection .sub-t {
+    width: 20vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sub .selection .sub-t {
+    width: 100%;
+    font-size: 5vmin;
+  }
 }
 .sub .selection .select {
   padding: 20px;
@@ -137,6 +171,13 @@ body {
 }
 .sub .selection .select .btn:hover {
   color: var(--golden);
+}
+@media screen and (max-width: 768px) {
+  .sub .selection .select {
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+  }
 }
 .sub .showglass {
   width: 100%;
@@ -228,4 +269,19 @@ body {
 .sub .showglass .item .order:hover .order-svg path {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
+}
+@media screen and (max-width: 768px) {
+  .sub .showglass {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 568px) {
+  .sub .showglass {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 450px) {
+  .sub .showglass {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
