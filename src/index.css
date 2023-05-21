@@ -172,11 +172,32 @@ body {
 .sub .selection .select .btn:hover {
   color: var(--golden);
 }
+.sub .selection .show-selection {
+  margin: 5px auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: purple;
+  color: white;
+  font-family: ampleBold;
+  display: none;
+  cursor: pointer;
+}
+.sub .selection .show-selection:hover {
+  background-color: plum;
+}
 @media screen and (max-width: 768px) {
   .sub .selection .select {
     flex-direction: column;
-    padding: 5px;
+    padding: 0px;
     gap: 5px;
+    height: 0px;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  .sub .selection .show-selection {
+    display: block;
   }
 }
 .sub .showglass {

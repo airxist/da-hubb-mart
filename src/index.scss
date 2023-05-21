@@ -176,11 +176,34 @@ body {
                 }
             }
         }
+        .show-selection {
+            // background-color: black;
+            // display: block;
+            margin: 5px auto;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: purple;
+            color: white;
+            font-family: $ab;
+            display: none;
+            cursor: pointer;
+            &:hover {
+                background-color: plum;
+            }
+        }
         @media screen and (max-width: 768px) {
             .select {
                 flex-direction: column;
-                padding: 5px;
+                padding: 0px;
                 gap: 5px;
+                height: 0px;
+                overflow: hidden;
+                transition: .3s;
+            }
+            .show-selection {
+                display: block;
             }
         }
     }

@@ -1,4 +1,4 @@
-const Button = ({click, category}) => {
+const Button = ({click, category }) => {
     const handleClick = (event) => {
         click(event);
         // resetting();
